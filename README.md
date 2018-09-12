@@ -1,3 +1,1 @@
-# DoorwayToHeaven
-
-dial it up!
+# Gate Badge
