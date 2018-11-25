@@ -10,6 +10,11 @@
   )
 
   (page A4)
+  (title_block
+    (title "Doorway to Heaven Badge")
+    (company "Sarif Industries")
+  )
+
   (layers
     (0 F.Cu signal)
     (31 B.Cu signal)
