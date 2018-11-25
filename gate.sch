@@ -1148,4 +1148,129 @@ Wire Wire Line
 	4150 8250 4150 8200
 Text Label 4150 8200 1    50   ~ 0
 sr3H
+Wire Wire Line
+	5000 4700 5050 4700
+Text Label 5050 4700 0    50   ~ 0
+sr4A
+Wire Wire Line
+	5000 4800 5050 4800
+Text Label 5050 4800 0    50   ~ 0
+sr4B
+Wire Wire Line
+	5000 4900 5050 4900
+Text Label 5050 4900 0    50   ~ 0
+sr4C
+Wire Wire Line
+	5000 5000 5050 5000
+Text Label 5050 5000 0    50   ~ 0
+sr4D
+Wire Wire Line
+	5000 5100 5050 5100
+Text Label 5050 5100 0    50   ~ 0
+sr4E
+Wire Wire Line
+	5000 5200 5050 5200
+Text Label 5050 5200 0    50   ~ 0
+sr4F
+Wire Wire Line
+	5000 5300 5050 5300
+Text Label 5050 5300 0    50   ~ 0
+sr4G
+Wire Wire Line
+	5000 5400 5050 5400
+Text Label 5050 5400 0    50   ~ 0
+sr4H
+Wire Wire Line
+	4600 7350 4600 7300
+Text Label 4600 7300 1    50   ~ 0
+sr4A
+Wire Wire Line
+	4600 7650 4600 7600
+Text Label 4600 7600 1    50   ~ 0
+sr4B
+Wire Wire Line
+	4600 7950 4600 7900
+Text Label 4600 7900 1    50   ~ 0
+sr4C
+Wire Wire Line
+	4600 8250 4600 8200
+Text Label 4600 8200 1    50   ~ 0
+sr4D
+Wire Wire Line
+	5050 7350 5050 7300
+Text Label 5050 7300 1    50   ~ 0
+sr4E
+Wire Wire Line
+	5050 7650 5050 7600
+Text Label 5050 7600 1    50   ~ 0
+sr4F
+Wire Wire Line
+	5050 7950 5050 7900
+Text Label 5050 7900 1    50   ~ 0
+sr4G
+Wire Wire Line
+	5050 8250 5050 8200
+Text Label 5050 8200 1    50   ~ 0
+sr4H
+Wire Wire Line
+	5700 6000 5750 6000
+Text Label 5750 6000 0    50   ~ 0
+sr5A
+Wire Wire Line
+	5700 6100 5750 6100
+Text Label 5750 6100 0    50   ~ 0
+sr5B
+Wire Wire Line
+	5700 6200 5750 6200
+Text Label 5750 6200 0    50   ~ 0
+sr5C
+Wire Wire Line
+	5700 6300 5750 6300
+Text Label 5750 6300 0    50   ~ 0
+sr5D
+Wire Wire Line
+	5700 6400 5750 6400
+Text Label 5750 6400 0    50   ~ 0
+sr5E
+Wire Wire Line
+	5700 6500 5750 6500
+Text Label 5750 6500 0    50   ~ 0
+sr5F
+Wire Wire Line
+	5700 6600 5750 6600
+Text Label 5750 6600 0    50   ~ 0
+sr5G
+Wire Wire Line
+	5700 6700 5750 6700
+Text Label 5750 6700 0    50   ~ 0
+sr5H
+NoConn ~ 5700 6900
+Wire Wire Line
+	5750 7600 5750 7550
+Text Label 5750 7550 1    50   ~ 0
+sr5A
+Wire Wire Line
+	5750 8000 5750 7950
+Text Label 5750 7950 1    50   ~ 0
+sr5B
+Wire Wire Line
+	6150 7600 6150 7550
+Text Label 6150 7550 1    50   ~ 0
+sr5C
+Wire Wire Line
+	6150 8000 6150 7950
+Text Label 6150 7950 1    50   ~ 0
+sr5D
+Wire Wire Line
+	6600 7600 6600 7550
+Text Label 6600 7550 1    50   ~ 0
+sr5E
+Wire Wire Line
+	6600 8000 6600 7950
+Text Label 6600 7950 1    50   ~ 0
+sr5F
+Wire Wire Line
+	7050 7600 7050 7550
+Text Label 7050 7550 1    50   ~ 0
+sr5G
 $EndSCHEMATC
