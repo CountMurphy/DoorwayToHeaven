@@ -555,11 +555,9 @@ F 3 "" H 2650 6350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2650 6350 2000 6350
-Wire Wire Line
 	1800 6350 1800 5800
 Wire Wire Line
-	2950 6350 2650 6350
+	2950 6350 2900 6350
 Connection ~ 2650 6350
 Connection ~ 2950 6100
 Wire Wire Line
@@ -572,48 +570,9 @@ Wire Wire Line
 	2950 5800 2950 6100
 Wire Wire Line
 	3550 5800 3550 6100
-Wire Wire Line
-	2950 6100 3100 6100
 Connection ~ 3550 6100
 Wire Wire Line
 	4600 5800 4600 6100
-Wire Wire Line
-	3550 6100 4150 6100
-Wire Wire Line
-	1800 6350 750  6350
-Wire Wire Line
-	750  6350 750  5000
-Wire Wire Line
-	750  5000 900  5000
-Connection ~ 1800 6350
-Wire Wire Line
-	2100 5000 2000 5000
-Wire Wire Line
-	2000 5000 2000 6350
-Connection ~ 2000 6350
-Wire Wire Line
-	2000 6350 1800 6350
-Wire Wire Line
-	3150 5000 3100 5000
-Wire Wire Line
-	3100 5000 3100 6100
-Connection ~ 3100 6100
-Wire Wire Line
-	3100 6100 3550 6100
-Wire Wire Line
-	4200 5000 4150 5000
-Wire Wire Line
-	4150 5000 4150 6100
-Connection ~ 4150 6100
-Wire Wire Line
-	4150 6100 4450 6100
-Wire Wire Line
-	4900 6300 4450 6300
-Wire Wire Line
-	4450 6300 4450 6100
-Connection ~ 4450 6100
-Wire Wire Line
-	4450 6100 4600 6100
 $Comp
 L power:GND #PWR?
 U 1 1 5BFC7B89
@@ -1273,4 +1232,176 @@ Wire Wire Line
 	7050 7600 7050 7550
 Text Label 7050 7550 1    50   ~ 0
 sr5G
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5C2D775D
+P 1300 4200
+F 0 "#PWR?" H 1300 4050 50  0001 C CNN
+F 1 "+3.3V" H 1315 4373 50  0000 C CNN
+F 2 "" H 1300 4200 50  0001 C CNN
+F 3 "" H 1300 4200 50  0001 C CNN
+	1    1300 4200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1300 4500 1300 4200
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5C2E2085
+P 2500 4200
+F 0 "#PWR?" H 2500 4050 50  0001 C CNN
+F 1 "+3.3V" H 2515 4373 50  0000 C CNN
+F 2 "" H 2500 4200 50  0001 C CNN
+F 3 "" H 2500 4200 50  0001 C CNN
+	1    2500 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5C2E20FE
+P 3550 4200
+F 0 "#PWR?" H 3550 4050 50  0001 C CNN
+F 1 "+3.3V" H 3565 4373 50  0000 C CNN
+F 2 "" H 3550 4200 50  0001 C CNN
+F 3 "" H 3550 4200 50  0001 C CNN
+	1    3550 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5C2E2CA3
+P 4600 4200
+F 0 "#PWR?" H 4600 4050 50  0001 C CNN
+F 1 "+3.3V" H 4615 4373 50  0000 C CNN
+F 2 "" H 4600 4200 50  0001 C CNN
+F 3 "" H 4600 4200 50  0001 C CNN
+	1    4600 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 5C2E2D1C
+P 5400 5550
+F 0 "#PWR?" H 5400 5400 50  0001 C CNN
+F 1 "+3.3V" V 5415 5678 50  0000 L CNN
+F 2 "" H 5400 5550 50  0001 C CNN
+F 3 "" H 5400 5550 50  0001 C CNN
+	1    5400 5550
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4600 4200 4600 4500
+Wire Wire Line
+	3550 4200 3550 4500
+Wire Wire Line
+	2500 4200 2500 4500
+Wire Wire Line
+	5400 5550 5300 5550
+Wire Wire Line
+	5300 5550 5300 5800
+Wire Wire Line
+	10750 3550 11050 3550
+Text Label 11050 3550 0    50   ~ 0
+ptd1
+Wire Wire Line
+	900  4900 650  4900
+Text Label 650  4900 1    50   ~ 0
+ptd1
+Wire Wire Line
+	2100 4900 2050 4900
+Text Label 2050 4400 1    50   ~ 0
+ptd1
+Wire Wire Line
+	3150 4900 3150 4750
+Wire Wire Line
+	3150 4750 3200 4750
+Wire Wire Line
+	3200 4750 3200 4400
+Text Label 3200 4400 1    50   ~ 0
+ptd1
+Wire Wire Line
+	4200 4900 4200 4850
+Wire Wire Line
+	4200 4850 4250 4850
+Text Label 4250 4400 1    50   ~ 0
+ptd1
+Wire Wire Line
+	4250 4400 4250 4850
+Wire Wire Line
+	2050 4400 2050 4900
+Wire Wire Line
+	4900 6200 4800 6200
+Text Label 4800 6200 1    50   ~ 0
+ptd1
+Wire Wire Line
+	10750 3350 11050 3350
+Text Label 11050 3350 0    50   ~ 0
+ptd3
+Wire Wire Line
+	900  4700 800  4700
+Text Label 800  4700 1    50   ~ 0
+ptd3
+Wire Wire Line
+	2950 6100 3550 6100
+Wire Wire Line
+	1800 6350 2650 6350
+Wire Wire Line
+	650  5000 900  5000
+Wire Wire Line
+	10750 3850 11050 3850
+Text Label 11050 3850 0    50   ~ 0
+ptc10
+Text Label 650  5000 3    50   ~ 0
+ptc10
+Wire Wire Line
+	2100 5000 2050 5000
+Text Label 2050 5000 1    50   ~ 0
+ptc10
+Wire Wire Line
+	3150 5000 3150 5050
+Text Label 3150 5050 0    50   ~ 0
+ptc10
+Wire Wire Line
+	4200 5000 4200 5050
+Text Label 4200 5050 0    50   ~ 0
+ptc10
+Wire Wire Line
+	3550 6100 4600 6100
+Wire Wire Line
+	4900 6300 4800 6300
+Text Label 4800 6300 2    50   ~ 0
+ptc10
+Wire Wire Line
+	10750 3950 11050 3950
+Text Label 11050 3950 0    50   ~ 0
+ptc9
+Wire Wire Line
+	900  5300 650  5300
+Text Label 650  5300 2    50   ~ 0
+ptc9
+Wire Wire Line
+	2100 5300 2000 5300
+Text Label 2000 5650 3    50   ~ 0
+ptc9
+Wire Wire Line
+	3150 5300 3150 5650
+Text Label 3150 5650 3    50   ~ 0
+ptc9
+Text Label 4200 5650 3    50   ~ 0
+ptc9
+Wire Wire Line
+	4200 5650 4200 5300
+Wire Wire Line
+	4900 6600 4750 6600
+Text Label 4750 6600 2    50   ~ 0
+ptc9
+Wire Wire Line
+	2000 5300 2000 5650
+Wire Wire Line
+	5300 7100 2900 7100
+Wire Wire Line
+	2900 7100 2900 6350
+Connection ~ 2900 6350
+Wire Wire Line
+	2900 6350 2650 6350
 $EndSCHEMATC
