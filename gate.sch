@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:gate-cache
 EELAYER 26 0
 EELAYER END
 $Descr A3 16535 11693
@@ -1351,7 +1352,7 @@ Wire Wire Line
 	10750 3850 11050 3850
 Text Label 11050 3850 0    50   ~ 0
 ptc10
-Text Label 650  5000 3    50   ~ 0
+Text Label 650  5000 2    50   ~ 0
 ptc10
 Wire Wire Line
 	2100 5000 2050 5000
@@ -1764,4 +1765,13 @@ Wire Wire Line
 	12900 7000 12600 7000
 Wire Wire Line
 	11400 6800 11400 7000
+Wire Wire Line
+	6550 5550 6350 5550
+Text Label 6350 5550 2    50   ~ 0
+pta5
+Wire Wire Line
+	800  5200 650  5200
+Connection ~ 800  5200
+Text Label 650  5200 1    50   ~ 0
+pta5
 $EndSCHEMATC
