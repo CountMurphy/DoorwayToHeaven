@@ -1,0 +1,5 @@
+(fp_lib_table
+  (lib (name watchFIX)(type KiCad)(uri ${KIPRJMOD}/watchFIX.pretty)(options "")(descr ""))
+  (lib (name watch)(type Legacy)(uri ${KIPRJMOD}/watch.mod)(options "")(descr ""))
+  (lib (name saneBattery)(type KiCad)(uri ${KIPRJMOD}/saneBattery.pretty)(options "")(descr ""))
+)
