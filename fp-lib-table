@@ -2,4 +2,5 @@
   (lib (name watchFIX)(type KiCad)(uri ${KIPRJMOD}/watchFIX.pretty)(options "")(descr ""))
   (lib (name watch)(type Legacy)(uri ${KIPRJMOD}/watch.mod)(options "")(descr ""))
   (lib (name saneBattery)(type KiCad)(uri ${KIPRJMOD}/saneBattery.pretty)(options "")(descr ""))
+  (lib (name logo)(type KiCad)(uri ${KIPRJMOD}/logo.pretty)(options "")(descr ""))
 )
