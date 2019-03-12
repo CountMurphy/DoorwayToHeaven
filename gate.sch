@@ -1353,7 +1353,7 @@ Wire Wire Line
 Text Label 11050 3850 0    50   ~ 0
 ptc10
 Text Label 650  5000 2    50   ~ 0
-ptc10
+ptd0
 Wire Wire Line
 	2100 5000 2050 5000
 Text Label 2050 5000 1    50   ~ 0
@@ -3051,4 +3051,8 @@ Wire Wire Line
 	6550 6050 6350 6050
 Text Label 6350 6050 3    50   ~ 0
 PTA18
+Wire Wire Line
+	10750 3650 11050 3650
+Text Label 11050 3650 0    50   ~ 0
+ptd0
 $EndSCHEMATC
