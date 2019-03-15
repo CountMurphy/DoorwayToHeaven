@@ -1341,7 +1341,7 @@ ptd3
 Wire Wire Line
 	900  4700 800  4700
 Text Label 800  4700 1    50   ~ 0
-ptd3
+ptd2
 Wire Wire Line
 	2950 6100 3550 6100
 Wire Wire Line
@@ -1353,25 +1353,25 @@ Wire Wire Line
 Text Label 11050 3850 0    50   ~ 0
 ptc10
 Text Label 650  5000 2    50   ~ 0
-ptd0
+ptd3
 Wire Wire Line
 	2100 5000 2050 5000
 Text Label 2050 5000 1    50   ~ 0
-ptc10
+ptd3
 Wire Wire Line
 	3150 5000 3150 5050
 Text Label 3150 5050 0    50   ~ 0
-ptc10
+ptd3
 Wire Wire Line
 	4200 5000 4200 5050
 Text Label 4200 5050 0    50   ~ 0
-ptc10
+ptd3
 Wire Wire Line
 	3550 6100 4600 6100
 Wire Wire Line
 	4900 6300 4800 6300
 Text Label 4800 6300 2    50   ~ 0
-ptc10
+ptd3
 Wire Wire Line
 	10750 3950 11050 3950
 Text Label 11050 3950 0    50   ~ 0
@@ -3055,4 +3055,8 @@ Wire Wire Line
 	10750 3650 11050 3650
 Text Label 11050 3650 0    50   ~ 0
 ptd0
+Wire Wire Line
+	10750 3450 11050 3450
+Text Label 11050 3450 0    50   ~ 0
+ptd2
 $EndSCHEMATC

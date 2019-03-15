@@ -16,6 +16,20 @@ static const gpio_input_pin_user_config_t ActivateSwitch={
     .config.interrupt = kPortDmaFallingEdge
 };
 
+
+/*##################SPI SHIT#############################*/
+static const gpio_output_pin_user_config_t Reset={
+    .pinName=GPIO_MAKE_PIN(GPIOD_IDX,3),
+    .config.outputLogic=1
+};
+static const gpio_output_pin_user_config_t Latch={
+    .pinName=GPIO_MAKE_PIN(GPIOA_IDX,12),
+    .config.outputLogic=0
+};
+static const gpio_output_pin_user_config_t Enable={
+    .pinName=GPIO_MAKE_PIN(GPIOC_IDX,9),
+    .config.outputLogic=0
+};
 /*##################Lights#############################*/
 static const gpio_output_pin_user_config_t ring0={
     .pinName=GPIO_MAKE_PIN(GPIOA_IDX,1),
