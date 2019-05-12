@@ -33,7 +33,7 @@ static spi_status_t SPI_Transfer(const uint8_t *tx, uint8_t *rx, size_t count)
 }
 
 
-void GlyphInit()
+void ChevronInit()
 {
     SPI_DRV_MasterInit(0, &spiMasterState);
     SPI_DRV_MasterConfigureBus(0,&spiConfig,&calculatedBaudRate);
@@ -111,7 +111,7 @@ void DailingSequence()
     uint8_t ab1[5]={0x00,0x08,0x00,0x00,0x00};
     uint8_t ab2[5]={0x00,0x08,0x00,0x20,0x00};
     uint8_t ab3[5]={0x00,0x08,0x20,0x20,0x00};
-    //uint8_t ab4[5]={0x00,0x01,0x00,0x00,0x00};
+    uint8_t ab4[5]={0x00,0x09,0x20,0x20,0x00};
     //uint8_t ab5[5]={0x00,0x00,0x04,0x00,0x00};
     //uint8_t ab6[5]={0x00,0x40,0x00,0x00,0x00};
     //uint8_t ab7[5]={0x00,0x00,0x00,0x00,0x80};
@@ -121,35 +121,44 @@ void DailingSequence()
 
     tRegInfo endByte;
     endByte.Reg=4;
-    endByte.Glyph=0x08;
+    endByte.Chevron=0x08;
 
 
     ClockWise(skip,startByte, endByte);
 
     endByte.Reg=1;
-    endByte.Glyph=0x20;
+    endByte.Chevron=0x20;
 
     startByte.Reg=4;
-    startByte.Glyph=0x08;
+    startByte.Chevron=0x08;
     CounterClockWise(ab1,startByte, endByte);
 
     startByte.Reg=1;
-    startByte.Glyph=0x20;
+    startByte.Chevron=0x20;
     endByte.Reg=2;
-    endByte.Glyph=0x20;
+    endByte.Chevron=0x20;
     ClockWise(ab2,startByte,endByte);
 
     //must call counter twice as first loop hits home and completes
     startByte.Reg=2;
-    startByte.Glyph=0x20;
+    startByte.Chevron=0x20;
     endByte.Reg=5;
-    endByte.Glyph=0x01;
+    endByte.Chevron=0x01;
     CounterClockWise(ab3,startByte,endByte);
     DailThis(Mask(home,ab3));
     OSA_TimeDelay(100);
     startByte.Reg=1;
-    startByte.Glyph=0x40;
+    startByte.Chevron=0x40;
     CounterClockWise(ab3,startByte,endByte);
+
+    startByte.Reg=4;
+    startByte.Chevron=0x01;
+    endByte.Reg=2;
+    endByte.Chevron=0x04;
+    ClockWise(ab4,startByte,endByte);
+    startByte.Reg=1;
+    startByte.Chevron=0x1;
+    ClockWise(ab4,startByte,endByte);
 
 }
 
@@ -166,19 +175,19 @@ void CounterClockWise(uint8_t mask[5], tRegInfo startByte, tRegInfo endByte)
     switch(startByte.Reg)
     {
         case 1:
-            seg1=startByte.Glyph;
+            seg1=startByte.Chevron;
             break;
         case 4:
-            seg5=startByte.Glyph;
-            if(startByte.Glyph==0x08)
+            seg5=startByte.Chevron;
+            if(startByte.Chevron==0x08)
                 newstart=5;
             break;
         case 2:
-            seg3=startByte.Glyph;
+            seg3=startByte.Chevron;
             break;
     }
 
-    for(int reg=startByte.Reg;reg>=1;reg--)
+    for(volatile int reg=startByte.Reg;reg>=1;reg--)
     {
         //technically reg 1 has at least 1 pin before home
         //this destroys loop logic
@@ -196,10 +205,12 @@ void CounterClockWise(uint8_t mask[5], tRegInfo startByte, tRegInfo endByte)
                     checkByte=seg2;
                     break;
                 case 4:
+                case 5:
                     checkByte=seg5;
                     break;
+                    break;
             }
-            if(reg==endByte.Reg && checkByte==endByte.Glyph)
+            if(reg==endByte.Reg && checkByte==endByte.Chevron)
             {
                 return;
             }
@@ -277,16 +288,16 @@ void ClockWise(uint8_t mask[5],tRegInfo startByte, tRegInfo endByte)
     else
     {
         OSA_TimeDelay(100);
-        seg1=0x00;
-        seg2=0x00;
-        seg3=0x00;
     }
     switch(startByte.Reg)
     {
         case 1:
-            seg2=startByte.Glyph;
-            if(startByte.Glyph==0x20)
+            seg2=startByte.Chevron;
+            if(startByte.Chevron==0x20)
                 newstart=1;
+            break;
+        case 5:
+            seg4=startByte.Chevron;
             break;
     }
     for(int reg=startByte.Reg==0?1:startByte.Reg;reg<=5;reg++)
@@ -301,11 +312,14 @@ void ClockWise(uint8_t mask[5],tRegInfo startByte, tRegInfo endByte)
                 case 2:
                     checkByte=seg3;
                     break;
+                case 3:
+                    checkByte=seg4;
+                    break;
                 case 4:
                     checkByte=seg5;
                     break;
             }
-            if(reg==endByte.Reg && checkByte==endByte.Glyph)
+            if(reg==endByte.Reg && checkByte==endByte.Chevron)
             {
                 return;
             }

@@ -5,13 +5,13 @@
 
 typedef struct{
     volatile uint8_t Reg;
-    volatile uint8_t Glyph;
+    volatile uint8_t Chevron;
 } tRegInfo;
 
 void Kawhoosh();
 void Wormhole(bool);
 void DailingSequence();
-void GlyphInit();
+void ChevronInit();
 uint32_t calculatedBaudRate;
 spi_master_state_t spiMasterState;
 spi_master_user_config_t spiConfig;

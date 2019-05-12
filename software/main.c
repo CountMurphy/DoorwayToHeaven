@@ -7,7 +7,7 @@ int main()
 {
     hardware_init();
     OSA_Init();
-    GlyphInit();
+    ChevronInit();
     //check for button press 4 dmeo mode
 
     //random timer?
