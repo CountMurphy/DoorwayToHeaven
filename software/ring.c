@@ -112,7 +112,7 @@ void DailingSequence()
     uint8_t ab2[5]={0x00,0x08,0x00,0x20,0x00};
     uint8_t ab3[5]={0x00,0x08,0x20,0x20,0x00};
     uint8_t ab4[5]={0x00,0x09,0x20,0x20,0x00};
-    //uint8_t ab5[5]={0x00,0x00,0x04,0x00,0x00};
+    uint8_t ab5[5]={0x00,0x09,0x24,0x20,0x00};
     //uint8_t ab6[5]={0x00,0x40,0x00,0x00,0x00};
     //uint8_t ab7[5]={0x00,0x00,0x00,0x00,0x80};
 
@@ -142,7 +142,7 @@ void DailingSequence()
     //must call counter twice as first loop hits home and completes
     startByte.Reg=2;
     startByte.Chevron=0x20;
-    endByte.Reg=5;
+    endByte.Reg=4;
     endByte.Chevron=0x01;
     CounterClockWise(ab3,startByte,endByte);
     DailThis(Mask(home,ab3));
@@ -160,6 +160,18 @@ void DailingSequence()
     startByte.Chevron=0x1;
     ClockWise(ab4,startByte,endByte);
 
+    startByte.Reg=2;
+    startByte.Chevron=0x04;
+    endByte.Reg=1;
+    endByte.Chevron=0x20;
+    CounterClockWise(ab5,startByte,endByte);
+    DailThis(Mask(home,ab5));
+    OSA_TimeDelay(100);
+    startByte.Reg=1;
+    startByte.Chevron=0x40;
+    endByte.Reg=4;
+    endByte.Chevron=0x40;
+    CounterClockWise(ab5,startByte,endByte);
 }
 
 void CounterClockWise(uint8_t mask[5], tRegInfo startByte, tRegInfo endByte)
@@ -187,12 +199,15 @@ void CounterClockWise(uint8_t mask[5], tRegInfo startByte, tRegInfo endByte)
             break;
     }
 
-    for(volatile int reg=startByte.Reg;reg>=1;reg--)
+    //technically reg 1 has at least 1 pin before home
+    //this destroys loop logic
+    uint8_t loopValue=startByte.Reg;
+    if(startByte.Reg==1)
     {
-        //technically reg 1 has at least 1 pin before home
-        //this destroys loop logic
-        if(startByte.Reg==1)
-            reg=5;
+        loopValue=5;
+    }
+    for(volatile int reg=loopValue;reg>=1;reg--)
+    {
 
         for(int i=newstart;i<8;i++)
         {
@@ -207,7 +222,6 @@ void CounterClockWise(uint8_t mask[5], tRegInfo startByte, tRegInfo endByte)
                 case 4:
                 case 5:
                     checkByte=seg5;
-                    break;
                     break;
             }
             if(reg==endByte.Reg && checkByte==endByte.Chevron)
