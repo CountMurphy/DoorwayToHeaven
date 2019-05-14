@@ -113,8 +113,7 @@ void DailingSequence()
     uint8_t ab3[5]={0x00,0x08,0x20,0x20,0x00};
     uint8_t ab4[5]={0x00,0x09,0x20,0x20,0x00};
     uint8_t ab5[5]={0x00,0x09,0x24,0x20,0x00};
-    //uint8_t ab6[5]={0x00,0x40,0x00,0x00,0x00};
-    //uint8_t ab7[5]={0x00,0x00,0x00,0x00,0x80};
+    uint8_t ab6[5]={0x00,0x49,0x24,0x20,0x00};
 
     tRegInfo startByte;
     startByte.Reg=0;
@@ -128,7 +127,6 @@ void DailingSequence()
 
     endByte.Reg=1;
     endByte.Chevron=0x20;
-
     startByte.Reg=4;
     startByte.Chevron=0x08;
     CounterClockWise(ab1,startByte, endByte);
@@ -146,32 +144,39 @@ void DailingSequence()
     endByte.Chevron=0x01;
     CounterClockWise(ab3,startByte,endByte);
     DailThis(Mask(home,ab3));
-    OSA_TimeDelay(100);
     startByte.Reg=1;
     startByte.Chevron=0x40;
     CounterClockWise(ab3,startByte,endByte);
 
     startByte.Reg=4;
     startByte.Chevron=0x01;
-    endByte.Reg=2;
-    endByte.Chevron=0x04;
+    endByte.Reg=5;
+    endByte.Chevron=0x40;
     ClockWise(ab4,startByte,endByte);
+    OSA_TimeDelay(100);
+    DailThis(Mask(home,ab4));
+    OSA_TimeDelay(100);
     startByte.Reg=1;
     startByte.Chevron=0x1;
+    endByte.Reg=2;
+    endByte.Chevron=0x04;
     ClockWise(ab4,startByte,endByte);
 
     startByte.Reg=2;
     startByte.Chevron=0x04;
-    endByte.Reg=1;
+    endByte.Reg=0;
     endByte.Chevron=0x20;
     CounterClockWise(ab5,startByte,endByte);
     DailThis(Mask(home,ab5));
-    OSA_TimeDelay(100);
     startByte.Reg=1;
     startByte.Chevron=0x40;
     endByte.Reg=4;
     endByte.Chevron=0x40;
     CounterClockWise(ab5,startByte,endByte);
+
+    startByte.Reg=4;
+    startByte.Chevron=0x40;
+    ClockWise(ab6,startByte,endByte);
 }
 
 void CounterClockWise(uint8_t mask[5], tRegInfo startByte, tRegInfo endByte)
@@ -213,7 +218,10 @@ void CounterClockWise(uint8_t mask[5], tRegInfo startByte, tRegInfo endByte)
         {
             uint8_t digits[5]={seg4,seg5,seg3,seg2,seg1};
             
-            DailThis(Mask(digits,mask));
+            if(!isNullCheck(digits))
+                DailThis(Mask(digits,mask));
+            else
+                continue;
             switch(endByte.Reg)
             {
                 case 1:
@@ -320,7 +328,10 @@ void ClockWise(uint8_t mask[5],tRegInfo startByte, tRegInfo endByte)
         for(int i=newstart;i<8;i++)
         {
             uint8_t digits[5]={seg4,seg5,seg3,seg2,seg1};
-            DailThis(Mask(digits,mask));
+            if(!isNullCheck(digits))
+                DailThis(Mask(digits,mask));
+            else
+                continue;
             switch(endByte.Reg)
             {
                 case 2:
@@ -331,6 +342,9 @@ void ClockWise(uint8_t mask[5],tRegInfo startByte, tRegInfo endByte)
                     break;
                 case 4:
                     checkByte=seg5;
+                    break;
+                case 5:
+                    checkByte=seg1;
                     break;
             }
             if(reg==endByte.Reg && checkByte==endByte.Chevron)
@@ -411,4 +425,18 @@ uint8_t* Mask(uint8_t digits[5],uint8_t mask[5])
         digits[i]=digits[i]|mask[i];
     }
     return digits;
+}
+
+bool isNullCheck(uint8_t digits[5])
+{
+    bool isNull=true;
+    for(int i=0;i<5;i++)
+    {
+        if(digits[i]!=0x00)
+        {
+            isNull=false;
+            break;
+        }
+    }
+    return isNull;
 }

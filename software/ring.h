@@ -19,5 +19,6 @@ void ClockWise(uint8_t mask[5], tRegInfo startByte,tRegInfo endByte);
 void CounterClockWise(uint8_t mask[5],tRegInfo startByte, tRegInfo endByte);
 void DailThis(uint8_t digits[5]);
 uint8_t* Mask(uint8_t digits[5],uint8_t mask[5]);
+bool isNullCheck(uint8_t digits[5]);
 
 #endif
