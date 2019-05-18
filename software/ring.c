@@ -48,58 +48,58 @@ void Kawhoosh()
 
 void Wormhole(bool isOn)
 {
-    //    gpio_output_pin_user_config_t rings[7]= {ring6,ring5,ring4,ring3,ring2,ring1,ring0};
-    //    uint8_t onAnimation[17][2]={
-    //        {0,1},
-    //        {1,1},
-    //        {0,0},
-    //        {1,0},
-    //        {2,1},
-    //        {5,1},
-    //        {5,0},
-    //        {2,0},
-    //        {3,1},
-    //        {6,1},
-    //        {3,0},
-    //        {4,1},
-    //        {3,1},
-    //        {5,1},
-    //        {2,1},
-    //        {0,1},
-    //        {1,1}
-    //    };
-    //
-    //    uint8_t offAnimation[7]= {
-    //        0,
-    //        1,
-    //        2,
-    //        3,
-    //        5,
-    //        4,
-    //        6
-    //    };
-    //
-    //    uint32_t delay=50;
-    //    for(int i=0;i<(isOn?17:7);i++)
-    //    {
-    //        if(isOn)
-    //        {
-    //            if(i==12)
-    //            {
-    //                OSA_TimeDelay(800);
-    //                delay=100;
-    //            }
-    //            GPIO_DRV_WritePinOutput(rings[onAnimation[i][0]].pinName,onAnimation[i][1]);
-    //            if(i!=16)
-    //                i++;
-    //            GPIO_DRV_WritePinOutput(rings[onAnimation[i][0]].pinName,onAnimation[i][1]);
-    //            OSA_TimeDelay(delay);
-    //        }else{
-    //            GPIO_DRV_WritePinOutput(rings[offAnimation[i]].pinName,0);
-    //            OSA_TimeDelay(delay);
-    //        }
-    //
-    //    }
+        gpio_output_pin_user_config_t rings[7]= {ring6,ring5,ring4,ring3,ring2,ring1,ring0};
+        uint8_t onAnimation[17][2]={
+            {0,1},
+            {1,1},
+            {0,0},
+            {1,0},
+            {2,1},
+            {5,1},
+            {5,0},
+            {2,0},
+            {3,1},
+            {6,1},
+            {3,0},
+            {4,1},
+            {3,1},
+            {5,1},
+            {2,1},
+            {0,1},
+            {1,1}
+        };
+    
+        uint8_t offAnimation[7]= {
+            0,
+            1,
+            2,
+            3,
+            5,
+            4,
+            6
+        };
+    
+        uint32_t delay=50;
+        for(int i=0;i<(isOn?17:7);i++)
+        {
+            if(isOn)
+            {
+                if(i==12)
+                {
+                    OSA_TimeDelay(800);
+                    delay=100;
+                }
+                GPIO_DRV_WritePinOutput(rings[onAnimation[i][0]].pinName,onAnimation[i][1]);
+                if(i!=16)
+                    i++;
+                GPIO_DRV_WritePinOutput(rings[onAnimation[i][0]].pinName,onAnimation[i][1]);
+                OSA_TimeDelay(delay);
+            }else{
+                GPIO_DRV_WritePinOutput(rings[offAnimation[i]].pinName,0);
+                OSA_TimeDelay(delay);
+            }
+    
+        }
 
 }
 
@@ -287,8 +287,6 @@ void CounterClockWise(uint8_t mask[5], tRegInfo startByte, tRegInfo endByte)
                 break;
         }
     }
-    //uint8_t finish[5]={0x00,0x00,0x00,0x00,0x80};
-    //DailThis(finish);
 }
 
 void ClockWise(uint8_t mask[5],tRegInfo startByte, tRegInfo endByte)

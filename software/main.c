@@ -17,7 +17,7 @@ int main()
     GPIO_DRV_WritePinOutput(Latch.pinName,1);
     GPIO_DRV_WritePinOutput(Latch.pinName,0);
     DailingSequence();
-    //Kawhoosh();
+    Kawhoosh();
     //main function taken care of in interrupt
     for(;;)
     {

@@ -31,13 +31,13 @@ void hardware_init()
     PORT_HAL_SetMuxMode(PORTC,9u,kPortMuxAsGpio);
 
     GPIO_DRV_InputPinInit(&ActivateSwitch);
-    //GPIO_DRV_OutputPinInit(&ring0);
-    //GPIO_DRV_OutputPinInit(&ring1);
-    //GPIO_DRV_OutputPinInit(&ring2);
-    //GPIO_DRV_OutputPinInit(&ring3);
-    //GPIO_DRV_OutputPinInit(&ring4);
-    //GPIO_DRV_OutputPinInit(&ring5);
-    //GPIO_DRV_OutputPinInit(&ring6);
+    GPIO_DRV_OutputPinInit(&ring0);
+    GPIO_DRV_OutputPinInit(&ring1);
+    GPIO_DRV_OutputPinInit(&ring2);
+    GPIO_DRV_OutputPinInit(&ring3);
+    GPIO_DRV_OutputPinInit(&ring4);
+    GPIO_DRV_OutputPinInit(&ring5);
+    GPIO_DRV_OutputPinInit(&ring6);
     //spi
     GPIO_DRV_OutputPinInit(&Reset);
     GPIO_DRV_OutputPinInit(&Latch);
