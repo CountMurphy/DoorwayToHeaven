@@ -8,25 +8,29 @@ int main()
     hardware_init();
     OSA_Init();
     ChevronInit();
-    //check for button press 4 dmeo mode
 
-    //random timer?
-
-    GPIO_DRV_WritePinOutput(Reset.pinName,0);
-    GPIO_DRV_WritePinOutput(Reset.pinName,1);
-    GPIO_DRV_WritePinOutput(Latch.pinName,1);
-    GPIO_DRV_WritePinOutput(Latch.pinName,0);
-    DailingSequence();
-    OSA_TimeDelay(225);
-    GPIO_DRV_WritePinOutput(Reset.pinName,0);
-    GPIO_DRV_WritePinOutput(Reset.pinName,1);
-    GPIO_DRV_WritePinOutput(Latch.pinName,1);
-    GPIO_DRV_WritePinOutput(Latch.pinName,0);
-
-    Kawhoosh();
     //main function taken care of in interrupt
-    for(;;)
+    GPIO_DRV_WritePinOutput(Reset.pinName,0);
+    GPIO_DRV_WritePinOutput(Reset.pinName,1);
+    GPIO_DRV_WritePinOutput(Latch.pinName,1);
+    GPIO_DRV_WritePinOutput(Latch.pinName,0);
+    while(1)
     {
+        if(!GPIO_DRV_ReadPinInput(ActivateSwitch.pinName))
+        {
+            GPIO_DRV_WritePinOutput(Reset.pinName,0);
+            GPIO_DRV_WritePinOutput(Reset.pinName,1);
+            GPIO_DRV_WritePinOutput(Latch.pinName,1);
+            GPIO_DRV_WritePinOutput(Latch.pinName,0);
+            DailingSequence();
+            OSA_TimeDelay(225);
+            GPIO_DRV_WritePinOutput(Reset.pinName,0);
+            GPIO_DRV_WritePinOutput(Reset.pinName,1);
+            GPIO_DRV_WritePinOutput(Latch.pinName,1);
+            GPIO_DRV_WritePinOutput(Latch.pinName,0);
+
+            Kawhoosh();
+        }
     }
     return 0;
 }
@@ -34,5 +38,4 @@ int main()
 //setup  interrupts
 //void PORTA_IRQHandler(void)
 //{
-//    Kawhoosh();
 //}

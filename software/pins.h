@@ -12,8 +12,7 @@ void hardware_init();
 
 /*##################Switch#############################*/
 static const gpio_input_pin_user_config_t ActivateSwitch={
-    .pinName=GPIO_MAKE_PIN(GPIOA_IDX,18),
-    .config.interrupt = kPortDmaFallingEdge
+    .pinName=GPIO_MAKE_PIN(GPIOA_IDX,18)
 };
 
 
@@ -31,11 +30,11 @@ static const gpio_output_pin_user_config_t Enable={
     .config.outputLogic=0
 };
 /*##################Lights#############################*/
+
 static const gpio_output_pin_user_config_t ring0={
     .pinName=GPIO_MAKE_PIN(GPIOA_IDX,1),
     .config.outputLogic=0
 };
-
 static const gpio_output_pin_user_config_t ring1={
     .pinName=GPIO_MAKE_PIN(GPIOA_IDX,2),
     .config.outputLogic=0
