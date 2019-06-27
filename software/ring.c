@@ -95,14 +95,6 @@ void Wormhole(bool isOn)
                 GPIO_DRV_WritePinOutput(rings[onAnimation[i][0]].pinName,onAnimation[i][1]);
                 OSA_TimeDelay(delay);
             }else{
-                //ugly fucking hack. MCU freezes shutting down the lights on pin PTA1.
-                //Completely locks up. All other pins fine...solution until I have time
-                //to fix their busted ass sdk, reset the damn chip
-                if(i==6)
-                {
-                    NVIC_SystemReset();
-                    break;
-                }
                 GPIO_DRV_WritePinOutput(rings[offAnimation[i]].pinName,0);
                 OSA_TimeDelay(delay);
             }
