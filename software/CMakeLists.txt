@@ -96,6 +96,7 @@ ADD_EXECUTABLE(Stargate
     "${ProjDirPath}/KSDK_1.2.0/platform/drivers/src/dma/fsl_dma_irq.c"
     "${ProjDirPath}/KSDK_1.2.0/platform/drivers/src/lptmr/fsl_lptmr_irq.c"
     #"${ProjDirPath}/KSDK_1.2.0/platform/drivers/src/uart/fsl_uart_irq.c"
+    "${ProjDirPath}/KSDK_1.2.0/platform/drivers/src/gpio/fsl_gpio_irq.c"
     "${ProjDirPath}/KSDK_1.2.0/platform/drivers/src/spi/fsl_spi_irq.c"
     #"${ProjDirPath}/KSDK_1.2.0/platform/drivers/src/i2c/fsl_i2c_irq.c"
     "${ProjDirPath}/main.c"
