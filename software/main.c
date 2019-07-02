@@ -43,6 +43,11 @@ int main()
     GPIO_DRV_WritePinOutput(Reset.pinName,1);
     GPIO_DRV_WritePinOutput(Latch.pinName,1);
     GPIO_DRV_WritePinOutput(Latch.pinName,0);
+    test();
+    GPIO_DRV_WritePinOutput(Reset.pinName,0);
+    GPIO_DRV_WritePinOutput(Reset.pinName,1);
+    GPIO_DRV_WritePinOutput(Latch.pinName,1);
+    GPIO_DRV_WritePinOutput(Latch.pinName,0);
     while(1)
     {
         if(!GPIO_DRV_ReadPinInput(ActivateSwitch.pinName))

@@ -438,3 +438,30 @@ bool isNullCheck(uint8_t digits[5])
     }
     return isNull;
 }
+
+void test()
+{
+    //test sequence
+    
+    uint8_t all[5]={0xff,0xff,0xff,0xff,0xff};
+    SPI_Transfer(all,NULL,5);
+    GPIO_DRV_WritePinOutput(Latch.pinName,1);
+    GPIO_DRV_WritePinOutput(Latch.pinName,0);
+    OSA_TimeDelay(1000);
+
+    GPIO_DRV_WritePinOutput(ring0.pinName,1);
+    GPIO_DRV_WritePinOutput(ring1.pinName,1);
+    GPIO_DRV_WritePinOutput(ring2.pinName,1);
+    GPIO_DRV_WritePinOutput(ring3.pinName,1);
+    GPIO_DRV_WritePinOutput(ring4.pinName,1);
+    GPIO_DRV_WritePinOutput(ring5.pinName,1);
+    GPIO_DRV_WritePinOutput(ring6.pinName,1);
+    OSA_TimeDelay(1000);
+    GPIO_DRV_WritePinOutput(ring0.pinName,0);
+    GPIO_DRV_WritePinOutput(ring1.pinName,0);
+    GPIO_DRV_WritePinOutput(ring2.pinName,0);
+    GPIO_DRV_WritePinOutput(ring3.pinName,0);
+    GPIO_DRV_WritePinOutput(ring4.pinName,0);
+    GPIO_DRV_WritePinOutput(ring5.pinName,0);
+    GPIO_DRV_WritePinOutput(ring6.pinName,0);
+}
