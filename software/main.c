@@ -38,7 +38,14 @@ int main()
 
 
     CLOCK_SYS_SetConfiguration(&g_defaultClockConfigVlpr);
-    //main function taken care of in interrupt
+
+    bool partyMode=false;
+    //check for party mode
+    if(!GPIO_DRV_ReadPinInput(ActivateSwitch.pinName))
+    {
+        partyMode=true;
+    }
+
     GPIO_DRV_WritePinOutput(Reset.pinName,0);
     GPIO_DRV_WritePinOutput(Reset.pinName,1);
     GPIO_DRV_WritePinOutput(Latch.pinName,1);
@@ -50,7 +57,16 @@ int main()
     GPIO_DRV_WritePinOutput(Latch.pinName,0);
     while(1)
     {
-        if(!GPIO_DRV_ReadPinInput(ActivateSwitch.pinName))
+        if(partyMode)
+        {
+            for(int i=0;i<60;i++)
+            {
+                OSA_TimeDelay(1000);
+                if(!GPIO_DRV_ReadPinInput(ActivateSwitch.pinName))
+                    break;
+            }
+        }
+        if(!GPIO_DRV_ReadPinInput(ActivateSwitch.pinName) || partyMode)
         {
             GPIO_DRV_WritePinOutput(Reset.pinName,0);
             GPIO_DRV_WritePinOutput(Reset.pinName,1);
