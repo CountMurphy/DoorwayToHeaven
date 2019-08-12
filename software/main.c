@@ -41,6 +41,7 @@ int main()
 
     bool partyMode=false;
     //check for party mode
+    //this is a dirty hack
     if(!GPIO_DRV_ReadPinInput(ActivateSwitch.pinName))
     {
         partyMode=true;
@@ -57,6 +58,7 @@ int main()
     GPIO_DRV_WritePinOutput(Latch.pinName,0);
     while(1)
     {
+        //if party mode, can be a second delay before button press registers
         if(partyMode)
         {
             for(int i=0;i<60;i++)
@@ -85,7 +87,3 @@ int main()
     return 0;
 }
 
-//setup  interrupts
-//void PORTA_IRQHandler(void)
-//{
-//}
